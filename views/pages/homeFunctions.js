@@ -10,6 +10,10 @@ var config = {
 	  //logout not run
 	  var logout=false;
 	  
+	  function test(){
+		document.getElementById('test').innerHTML = firebase.auth().currentUser.uid;
+	  }
+	  
 	  //handles login redirect
 	  function Login() {
 			   firebase.auth().onAuthStateChanged(function(user) {
