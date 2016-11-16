@@ -68,7 +68,7 @@
     }
 	
 	function Redirect_login() {
-               window.location="index.js";
+               window.location="index.html";
             }	
 			
 	function Redirect_home() {
