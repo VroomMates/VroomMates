@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<script src="https://www.gstatic.com/firebasejs/3.5.1/firebase.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/3.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.5.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.5.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/live/0.5/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/live/0.5/firebase-ui-auth.css">
+	<script src="profileFunctions.js"></script>
+	
+			<input id="firstName" type="text" onClick="this.setSelectionRange(0, this.value.length)" value="">
+			<input id="lastName" type="text" onClick="this.setSelectionRange(0, this.value.length)" value="">
+			<input id="genderM" type="radio" name="gender" value="Male">
+			<input id="genderF" type="radio" name="gender" value="Female">
+			
+			<input id="submitButton" onClick="validateForm()" type="submit" value="Save">
+			<button onClick="validateForm()" name="Save">Save</button>
+			<button onclick="readUserData();" name="Read">Read</button>
+	</head>
+	<body>
+	</body>
+</html>
