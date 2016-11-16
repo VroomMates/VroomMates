@@ -19,7 +19,7 @@ var config = {
 				}
 				//else redirect to login page
 				else{
-					window.location="index.html";
+					window.location="index.ejs";
 				}
 			});
 		}
@@ -33,7 +33,7 @@ var config = {
 				//else sign out user, redirect to login page, logout set to true
 				else{
 					logout=true;
-					window.location="index.html";
+					window.location="index.ejs";
 					firebase.auth().signOut();
 				}
 			});
