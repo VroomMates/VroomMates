@@ -14,6 +14,10 @@ var config = {
 		document.getElementById('test').innerHTML = firebase.auth().currentUser.uid;
 	  }
 	  
+	  function Profile(){
+		window.location="profile.html";
+	  }
+	  
 	  //handles login redirect
 	  function Login() {
 			   firebase.auth().onAuthStateChanged(function(user) {
