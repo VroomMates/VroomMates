@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<script src="https://www.gstatic.com/firebasejs/3.5.1/firebase.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/3.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.5.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.5.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/live/0.5/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/live/0.5/firebase-ui-auth.css">
+	<script src="setupScheduleFunctions.js"></script>
+	
+			<p>Monday Morning</p>
+			
+			<select id = "morn1">
+  			<option value="" disabled selected hidden>Please Choose a Time..</option>
+			<option value="7 - 8">7 - 8</option>
+  			<option value="8 - 9">8 - 9</option>
+  			<option value="9 - 10">9 - 10</option>
+  			<option value="10 - 11">10 - 11</option>
+			<option value = "11 - 12">11 - 12</option>
+			<option value ="Flexible">Flexible</option>
+			</select>
+		
+			<p>Monday Evening</p>
+			<select id = "even1">
+  			<option value="" disabled selected hidden>Please Choose a Time..</option>
+			<option value="12 - 1">12 - 1</option>
+  			<option value="1 - 2">1 - 2</option>
+  			<option value="2 - 3">2 - 3</option>
+  			<option value="3 - 4">3 - 4</option>
+			<option value = "4 - 5">4 - 5</option>
+			<option value = "5 - 6">5 - 6</option>	
+			<option value ="Flexible">Flexible</option>
+			</select>
+			
+			<p>Tuesday Morning</p>
+			<select id = "morn2">
+  			<option value="" disabled selected hidden>Please Choose a Time..</option>
+			<option value="7 - 8">7 - 8</option>
+  			<option value="8 - 9">8 - 9</option>
+  			<option value="9 - 10">9 - 10</option>
+  			<option value="10 - 11">10 - 11</option>
+			<option value = "11 - 12">11 - 12</option>
+			<option value ="Flexible">Flexible</option>
+			</select>			
+			
+			<p>Tuesday Evening</p>
+			<select id = "even2">
+  			<option value="" disabled selected hidden>Please Choose a Time..</option>
+			<option value="12 - 1">12 - 1</option>
+  			<option value="1 - 2">1 - 2</option>
+  			<option value="2 - 3">2 - 3</option>
+  			<option value="3 - 4">3 - 4</option>
+			<option value = "4 - 5">4 - 5</option>
+			<option value = "5 - 6">5 - 6</option>	
+			<option value ="Flexible">Flexible</option>
+			</select>
+		
+			<p>Wednesday Morning</p>
+			<select id = "morn3">
+  			<option value="" disabled selected hidden>Please Choose a Time..</option>
+			<option value="7 - 8">7 - 8</option>
+  			<option value="8 - 9">8 - 9</option>
+  			<option value="9 - 10">9 - 10</option>
+  			<option value="10 - 11">10 - 11</option>
+			<option value = "11 - 12">11 - 12</option>
+			<option value ="Flexible">Flexible</option>
+			</select>
+		
+			<p>Wednesday Evening</p>
+			<select id = "even3">
+  			<option value="" disabled selected hidden>Please Choose a Time..</option>
+			<option value="12 - 1">12 - 1</option>
+  			<option value="1 - 2">1 - 2</option>
+  			<option value="2 - 3">2 - 3</option>
+  			<option value="3 - 4">3 - 4</option>
+			<option value = "4 - 5">4 - 5</option>
+			<option value = "5 - 6">5 - 6</option>	
+			<option value ="Flexible">Flexible</option>
+			</select>
+		
+			<p>Thursday Morning</p>
+			<select id = "morn4">
+  			<option value="" disabled selected hidden>Please Choose a Time..</option>
+			<option value="7 - 8">7 - 8</option>
+  			<option value="8 - 9">8 - 9</option>
+  			<option value="9 - 10">9 - 10</option>
+  			<option value="10 - 11">10 - 11</option>
+			<option value = "11 - 12">11 - 12</option>
+			<option value ="Flexible">Flexible</option>
+			</select>
+		
+			<p>Thursday Evening</p>
+			<select id = "even4">
+  			<option value="" disabled selected hidden>Please Choose a Time..</option>
+			<option value="12 - 1">12 - 1</option>
+  			<option value="1 - 2">1 - 2</option>
+  			<option value="2 - 3">2 - 3</option>
+  			<option value="3 - 4">3 - 4</option>
+			<option value = "4 - 5">4 - 5</option>
+			<option value = "5 - 6">5 - 6</option>	
+			<option value ="Flexible">Flexible</option>
+			</select>
+		
+			<p>Friday Morning</p>
+			<select id = "morn5">
+  			<option value="" disabled selected hidden>Please Choose a Time..</option>
+			<option value="7 - 8">7 - 8</option>
+  			<option value="8 - 9">8 - 9</option>
+  			<option value="9 - 10">9 - 10</option>
+  			<option value="10 - 11">10 - 11</option>
+			<option value = "11 - 12">11 - 12</option>
+			<option value ="Flexible">Flexible</option>
+			</select>
+		
+			<p>Friday Evening</p>
+			<select id = "even5">
+  			<option value="" disabled selected hidden>Please Choose a Time..</option>
+			<option value="12 - 1">12 - 1</option>
+  			<option value="1 - 2">1 - 2</option>
+  			<option value="2 - 3">2 - 3</option>
+  			<option value="3 - 4">3 - 4</option>
+			<option value = "4 - 5">4 - 5</option>
+			<option value = "5 - 6">5 - 6</option>	
+			<option value ="Flexible">Flexible</option>
+			</select>
+		
+			<button onclick="validateForm()" name="Save">Save</button>
+	</head>
+	<body>
+	</body>
+</html>

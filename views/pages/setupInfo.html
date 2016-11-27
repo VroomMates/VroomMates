@@ -8,14 +8,21 @@
     <script src="https://www.gstatic.com/firebasejs/3.5.0/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/live/0.5/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/live/0.5/firebase-ui-auth.css">
-	<script src="profileFunctions.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkr4cxrw3ZEG098emzdRIfpfNX5rDMg2k&libraries=places"></script>
+	<script src="setupInfoFunctions.js"></script>
 	
+			<p>First Name</p>
 			<input id="firstName" type="text" onClick="this.setSelectionRange(0, this.value.length)" value="">
+			<p>Last Name</p>
 			<input id="lastName" type="text" onClick="this.setSelectionRange(0, this.value.length)" value="">
+			<p>Gender</p>
 			<input id="genderM" type="radio" name="gender" value="Male">
 			<input id="genderF" type="radio" name="gender" value="Female">
+			<p>Driver</p>
 			<input id="driverY" type="radio" name="driver" value="yes">
 			<input id="driverN" type="radio" name="driver" value="no">
+			<p>Address</p>
+			<input id="address" type="text" onClick="this.setSelectionRange(0,this.value.length)" value="">
 			
 			<input id="submitButton" onClick="validateForm()" type="submit" value="Save">
 			<button onclick="readUserData();" name="Read">Read</button>

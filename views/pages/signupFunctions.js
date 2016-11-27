@@ -30,31 +30,14 @@
       // [END createwithemail]
     }
     
-	//handles creating user database upon signup
-    function initApp() {
-		firebase.auth().onAuthStateChanged(function(user) {
+	firebase.auth().onAuthStateChanged(function(user) {
 			//if user now logged in
 			if(user){
-				//call database creation function
-				regNewUser(user.email,user.uid);
 				sendEmailVerification();
 			}
 			//is database created
-			var created=true;
-			try{
-				//try access database for user
-				firebase.database().ref('Users/'+user.uid)
-			}
-			catch(e){
-				//if error, not created yet
-				created=false;
-			}
-			if(created){
-				//if created sign up finished, redirect to home
-				Redirect_home();
-			}
+			
 		});
-	}
 	
 	function sendEmailVerification() {
       // [START sendemailverification]
@@ -62,6 +45,7 @@
         // Email Verification sent!
         // [START_EXCLUDE]
         alert('Email Verification Sent!');
+		Redirect_setup();
         // [END_EXCLUDE]
       });
       // [END sendemailverification]
@@ -71,43 +55,13 @@
                window.location="index.html";
             }	
 			
-	function Redirect_home() {
-               window.location="home.html";
+	function Redirect_setup() {
+               window.location="setupInfo.html";
             }
-    window.onload = function() {
-      initApp();
-    };
-	
-	//creates database for new users once they have signed up
-	function regNewUser(newemail,uid){
-		firebase.database().ref('Users/'+ uid).set({
-			email: newemail,
-			firstName: "",
-			lastName: "",
-			gender: "",
-			driver: 0
-		});
-		firebase.database().ref('Users/'+ uid + '/Location/').set({
-			lng: 0,
-			lat: 0
-		});
-		
-		firebase.database().ref('Users/'+ uid + '/morningSchedule/').set({
-			monday: "",
-			tuesday: "",
-			wednesday: "",
-			thursday: "",
-			friday: ""
-		});
-		firebase.database().ref('Users/'+ uid + '/eveningSchedule/').set({
-			monday: "",
-			tuesday: "",
-			wednesday: "",
-			thursday: "",
-			friday: ""
-		});
-		firebase.database().ref('Users/'+ uid + '/Matches/').set();
-	}
+			
+	function Redirect_home() {
+				window.location="home.html";
+			}
 	
 	
 	
