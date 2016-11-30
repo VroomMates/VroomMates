@@ -61,10 +61,10 @@ function writeUserData(userId, morn, even, day) {
   referenceEven.child(day).set(even).then(function(){
 	  if(day=="friday")
 	  {
-		Redirect_Home();
+		Redirect_Match();
 	  }
   });
 }
-function Redirect_Home(){
-		window.location="home.html";
+function Redirect_Match(){
+		window.location="setupMatch.html";
 }
