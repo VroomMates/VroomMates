@@ -62,7 +62,7 @@ var config = {
 					if( (lngdiff<=.2) && (latdiff<=.2)){
 						latdiff = (1-latdiff)*6;
 						lngdiff = (1-lngdiff)*6;
-						alert("Match around " + Math.round((latdiff + lngdiff)*(2/3)) + "km with user: " + obj.uid);
+						alert("Match around " + Math.round((latdiff + lngdiff)*(2/3)) + "km with user: " + firebase.database().ref('/Users/').once(obj.uid);
 						//alert("Match within 8km");
 						
 						break;
@@ -116,7 +116,11 @@ var config = {
 				if( (lngdiff<.2) && (latdiff<.2)){
 					latdiff = (1-latdiff)*6;
 					lngdiff = (1-lngdiff)*6;
-					alert("Match around " + Math.round((latdiff + lngdiff)*(2/3)) + "km with user: " + obj.uid);
+					var name;
+					 var reference = firebase.database().ref('Users/'+obj.uid).once('value').then(function(snapshot) {
+					name = snapshot.val().firstName;
+					 });
+					alert("Match around " + Math.round((latdiff + lngdiff)*(2/3)) + "km with user: " + name);
 					//alert("Match within 16km");
 					break;
 				}
