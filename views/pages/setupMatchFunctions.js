@@ -59,7 +59,7 @@ var config = {
 					var latdiff = Math.abs(you.lat - poslat);
 					//alert(lngdiff + " | " + latdiff);
 
-					if( (lngdiff<=.1) && (latdiff<=.1)){
+					if( (lngdiff<=.2) && (latdiff<=.2)){
 						latdiff = (1-latdiff)*6;
 						lngdiff = (1-lngdiff)*6;
 						alert("Match around " + Math.round((latdiff + lngdiff)*(2/3)) + "km with user: " + obj.uid);
@@ -86,7 +86,7 @@ var config = {
 				var latdiff = Math.abs(you.lat - poslat);
 				//alert(lngdiff + " | " + latdiff);
 
-				if( (lngdiff<.1) && (latdiff<.1)){
+				if( (lngdiff<.2) && (latdiff<.2)){
 					latdiff = (1-latdiff)*6;
 					lngdiff = (1-lngdiff)*6;
 					alert("Match around " + Math.round((latdiff + lngdiff)*(2/3)) + "km with user: " + obj.uid);
@@ -113,7 +113,7 @@ var config = {
 				var latdiff = Math.abs(you.lat - poslat);
 				//alert(lngdiff + " | " + latdiff);
 
-				if( (lngdiff<.1) && (latdiff<.1)){
+				if( (lngdiff<.2) && (latdiff<.2)){
 					latdiff = (1-latdiff)*6;
 					lngdiff = (1-lngdiff)*6;
 					alert("Match around " + Math.round((latdiff + lngdiff)*(2/3)) + "km with user: " + obj.uid);
@@ -139,7 +139,7 @@ var config = {
 				var latdiff = Math.abs(you.lat - poslat);
 				//alert(lngdiff + " | " + latdiff);
 
-				if( (lngdiff<.1) && (latdiff<.1)){
+				if( (lngdiff<.2) && (latdiff<.2)){
 					latdiff = (1-latdiff)*6;
 					lngdiff = (1-lngdiff)*6;
 					alert("Match around " + Math.round((latdiff + lngdiff)*(2/3)) + "km with user: " + obj.uid);
