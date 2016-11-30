@@ -79,65 +79,80 @@ var config = {
 		}
 		//above + right
 		if(str.lat>end.lat&&str.lng>end.lng){
+			var ratiolat = (str.lat - end.lat)/100;
+			var ratiolng = (str.lng - end.lng)/100;
 			while(poslat>=end.lat && poslng >=end.lng ){
-				var lngdiff = Math.abs(you.lng + poslng);
-				var latdiff = Math.abs(you.lat + poslat);
+				var lngdiff = Math.abs(you.lng - poslng);
+				var latdiff = Math.abs(you.lat - poslat);
 				//alert(lngdiff + " | " + latdiff);
 
 				if( (lngdiff<.1) && (latdiff<.1)){
-					alert("Match within 16km");
+					latdiff = (1-latdiff)*6;
+					lngdiff = (1-lngdiff)*6;
+					alert("Match around " + Math.round((latdiff + lngdiff)*(2/3)) + "km with user: " + obj.uid);
+					//alert("Match within 16km");
 					break;
 				}
 				
 				if(poslat>end.lat){
-					poslat = poslat - .01;
+					poslat -= ratiolat*2;
 				}
 				
 				if(poslng>end.lng){
-					poslng = poslng - .01;
+					poslng += ratiolat*2;
 				}
 			}
 		}
 		
 		//below + left
 		if(str.lat<end.lat&&str.lng<end.lng){
+			var ratiolat = (str.lat - end.lat)/100;
+			var ratiolng = (str.lng - end.lng)/100;
 			while(poslat<=end.lat && poslng <=end.lng ){
 				var lngdiff = Math.abs(you.lng - poslng);
 				var latdiff = Math.abs(you.lat - poslat);
 				//alert(lngdiff + " | " + latdiff);
 
 				if( (lngdiff<.1) && (latdiff<.1)){
-					alert("Match within 16km");
+					latdiff = (1-latdiff)*6;
+					lngdiff = (1-lngdiff)*6;
+					alert("Match around " + Math.round((latdiff + lngdiff)*(2/3)) + "km with user: " + obj.uid);
+					//alert("Match within 16km");
 					break;
 				}
 				
 				if(poslat<end.lat){
-					poslat = poslat + .0;
+					poslat += ratiolat*2;
 				}
 				
 				if(poslng<end.lng){
-					poslng = poslng + .01;
+					poslng += ratiolat*2;
 				}
 			}
 		} 
 				//below + right
 		if(str.lat<end.lat&&str.lng>end.lng){
+			var ratiolat = (str.lat - end.lat)/100;
+			var ratiolng = (str.lng - end.lng)/100;
 			while(poslat<=end.lat && poslng <=end.lng ){
 				var lngdiff = Math.abs(you.lng - poslng);
 				var latdiff = Math.abs(you.lat - poslat);
 				//alert(lngdiff + " | " + latdiff);
 
 				if( (lngdiff<.1) && (latdiff<.1)){
-					alert("Match within 16km");
+					latdiff = (1-latdiff)*6;
+					lngdiff = (1-lngdiff)*6;
+					alert("Match around " + Math.round((latdiff + lngdiff)*(2/3)) + "km with user: " + obj.uid);
+					//alert("Match within 16km");
 					break;
 				}
 				
 				if(poslat<end.lat){
-					poslat = poslat + .01;
+					poslat += ratiolat*2;
 				}
 				
 				if(poslng>end.lng){
-					poslng = poslng - .01;
+					poslng -= ratiolat*2;
 				}
 			}
 		}
