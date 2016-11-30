@@ -9,16 +9,19 @@ var config = {
 	  
 	  var userLat;
 	  var userLng;
+	  var userUID;
 	  
 	  firebase.auth().onAuthStateChanged(function(user) {
 			firebase.database().ref('Users/' + user.uid).once('value').then(function(snapshot) {
 					userLat = snapshot.val().location.lat;
 					userLng = snapshot.val().location.lng;
+					userUID = snapshot.key;
 					search();
 			});
 	  });
 	  
 	  var matches = [];
+	  var matched = [];
 	  
 	  function matching(){
 			while(true){
@@ -28,6 +31,11 @@ var config = {
 					match(obj);
 				}
 			}
+			store();
+	  }
+	  
+	  function store(){
+			firebase.database().ref('Users/'+userUID+'/match/').update(matched,function redirect_home() {window.location = "home.html"});
 	  }
 	  
 	  function match(obj){
@@ -62,7 +70,8 @@ var config = {
 					if( (lngdiff<=.2) && (latdiff<=.2)){
 						latdiff = (1-latdiff)*6;
 						lngdiff = (1-lngdiff)*6;
-						alert("Match around " + Math.round((latdiff + lngdiff)*(2/3)) + "km with user: " + obj.uid);
+						matched.push(obj);
+						//alert("Match around " + Math.round((latdiff + lngdiff)*(2/3)) + "km with user: " + obj.uid);
 						//alert("Match within 8km");
 						
 						break;
@@ -89,7 +98,8 @@ var config = {
 				if( (lngdiff<.2) && (latdiff<.2)){
 					latdiff = (1-latdiff)*6;
 					lngdiff = (1-lngdiff)*6;
-					alert("Match around " + Math.round((latdiff + lngdiff)*(2/3)) + "km with user: " + obj.uid);
+					matched.push(obj);
+					//alert("Match around " + Math.round((latdiff + lngdiff)*(2/3)) + "km with user: " + obj.uid);
 					//alert("Match within 16km");
 					break;
 				}
@@ -116,7 +126,8 @@ var config = {
 				if( (lngdiff<.2) && (latdiff<.2)){
 					latdiff = (1-latdiff)*6;
 					lngdiff = (1-lngdiff)*6;
-					alert("Match around " + Math.round((latdiff + lngdiff)*(2/3)) + "km with user: " + obj.uid);
+					matched.push(obj);
+					//alert("Match around " + Math.round((latdiff + lngdiff)*(2/3)) + "km with user: " + obj.uid);
 					//alert("Match within 16km");
 					break;
 				}
@@ -142,7 +153,8 @@ var config = {
 				if( (lngdiff<.2) && (latdiff<.2)){
 					latdiff = (1-latdiff)*6;
 					lngdiff = (1-lngdiff)*6;
-					alert("Match around " + Math.round((latdiff + lngdiff)*(2/3)) + "km with user: " + obj.uid);
+					matched.push(obj);
+					//alert("Match around " + Math.round((latdiff + lngdiff)*(2/3)) + "km with user: " + obj.uid);
 					//alert("Match within 16km");
 					break;
 				}
