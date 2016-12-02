@@ -10,13 +10,13 @@ var config = {
 	  //logout not run
 	  var logout=false;
 	  
-	  function test(){
-		document.getElementById('test').innerHTML = firebase.auth().currentUser.uid;
-	  }
-	  
 	  function Profile(){
 		window.location="profile.html";
 	  }
+	  
+	  function Match(){
+		window.location="match.html";
+	}
 	  
 	  //handles login redirect
 	  function Login() {
@@ -41,8 +41,8 @@ var config = {
 				//else sign out user, redirect to login page, logout set to true
 				else{
 					logout=true;
-					window.location="index.html";
 					firebase.auth().signOut();
+					window.location="index.html";
 				}
 			});
 	}

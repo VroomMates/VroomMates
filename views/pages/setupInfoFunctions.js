@@ -22,6 +22,7 @@ function validateForm(){
     geocoder.geocode( { 'address': address}, function(results, status) {
 	//alert("here");
       if (status == google.maps.GeocoderStatus.OK) {
+	  //alert("here");
 		lat = results[0].geometry.location.lat();
 		lng = results[0].geometry.location.lng();
 		foundLocation = true;

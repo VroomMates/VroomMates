@@ -10,16 +10,22 @@
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/live/0.5/firebase-ui-auth.css">
 	<script src="profileFunctions.js"></script>
 	
-			<input id="firstName" type="text" onClick="this.setSelectionRange(0, this.value.length)" value="">
-			<input id="lastName" type="text" onClick="this.setSelectionRange(0, this.value.length)" value="">
-			<input id="genderM" type="radio" name="gender" value="Male">
-			<input id="genderF" type="radio" name="gender" value="Female">
-			<input id="driverY" type="radio" name="driver" value="yes">
-			<input id="driverN" type="radio" name="driver" value="no">
+			<h3>First Name:</h3>
+			<div id="firstName"></div>
+			<h3>Last Name:</h3>
+			<div id="lastName"></div>
+			<h3>Gender:</h3>
+			<div id="gender"></div>
+			<h3>Driver:</h3>
+			<div id="driver"></div>
+			<h3>address:</h3>
+			<div id="address"></div>
 			
-			<input id="submitButton" onClick="validateForm()" type="submit" value="Save">
-			<button onclick="readUserData();" name="Read">Read</button>
+			
 	</head>
 	<body>
+	<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkr4cxrw3ZEG098emzdRIfpfNX5rDMg2k">
+    </script>
 	</body>
 </html>
