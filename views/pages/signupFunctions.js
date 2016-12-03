@@ -58,10 +58,6 @@
 	function Redirect_setup() {
                window.location="setupInfo.html";
             }
-			
-	function Redirect_home() {
-				window.location="home.html";
-			}
 	
 	
 	

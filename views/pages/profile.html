@@ -11,15 +11,22 @@
 	<script src="profileFunctions.js"></script>
 	
 			<h3>First Name:</h3>
-			<div id="firstName"></div>
+			<!--<div id="firstName"></div>-->
+			<input id="firstName" type="text" onClick="this.setSelectionRange(0, this.value.length)" value="">
 			<h3>Last Name:</h3>
-			<div id="lastName"></div>
+			<input id="lastName" type="text" onClick="this.setSelectionRange(0, this.value.length)" value="">
 			<h3>Gender:</h3>
-			<div id="gender"></div>
+			<input id="genderMale" type="radio" name="gender" value="Male">
+			<input id="genderFemale" type="radio" name="gender" value="Female">
+			<input id="genderOther" type="radio" name="gender" value="Other">
 			<h3>Driver:</h3>
-			<div id="driver"></div>
-			<h3>address:</h3>
-			<div id="address"></div>
+			<input id="driveryes" type="radio" name="driver" value="yes">
+			<input id="driverno" type="radio" name="driver" value="no">
+			<h3>Address:</h3>
+			<input id="address" type="text" onClick="this.setSelectionRange(0, this.value.length)" value="">
+			<h3>Schedule:</h3>
+			<button onclick="redirect_Schedule()" id="schedule" disabled>Schedule</button>
+			<button onclick="redirect_Home()" id="home" disabled>Home</button>
 			
 			
 	</head>
