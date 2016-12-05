@@ -180,6 +180,9 @@ var config = {
 			var uid = childSnapshot.key;
 			var lat = childSnapshot.val().location.lat;
 			var lng = childSnapshot.val().location.lng;
+			var firstName = childSnapshot.val().firstName;
+			var lastName = childSnapshot.val().lastName;
+			var email = childSnapshot.email;
 			if(uid!=firebase.auth().currentUser.uid){
 				if((lat>=userLat&&lat<=mayLat)&&(lng<=userLng&&lng>=mayLng)){
 					//alert(uid);
@@ -188,7 +191,7 @@ var config = {
 				}
 				else if((lat>=userLat&&lat<=mayLat)&&(lng>=userLng&&lng<=mayLng)){
 					//alert(uid);
-					var object = {uid: uid, lat:lat, lng:lng};
+					var object = {uid: uid, lat:lat, lng:lng, name:firstName+""+lastName, email: email};
 					matches.push(object);
 				}
 				else if((lat<=userLat&&lat>=mayLat)&&(lng<=userLng&&lng>=mayLng)){
