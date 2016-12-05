@@ -40,14 +40,17 @@ var config = {
 			
 			var uluru = {lat: obj.lat, lng: obj.lng};
 			
-			var name = firebase.database().ref('Users/' + obj.uid).once('value').then(function(snapshot) {
+			var firstName;
+			var lastName;
+			firebase.database().ref('Users/' + obj.uid).once('value').then(function(snapshot) {
 					firstName = snapshot.val().firstName;
 					lastName = snapshot.val().lastName;
 			});
+			var name = firstName + " " + lastName;
 			var marker = new google.maps.Marker({
 			  position: uluru,
 			  map: map,
-			  title: (name.firstName + " " + name.lastName)
+			  title: name
 			});
 		}
       }
