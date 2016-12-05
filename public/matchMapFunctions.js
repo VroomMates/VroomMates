@@ -34,8 +34,19 @@ var config = {
 			});
 			displayRoute(user, maynooth, directionsService,directionsDisplay);
 			
-	    		makeMarker();
+	    while(true){
+			var obj = matches.pop();
+			if(obj==null) break;
+			
+			var uluru = {lat: obj.lat, lng: obj.lng};
+			
+			var marker = new google.maps.Marker({
+			  position: uluru,
+			  map: map
+			});
+		}
       }
+	  
 	  function displayRoute(origin, destination, service, display) {
         service.route({
           origin: origin,
@@ -50,29 +61,6 @@ var config = {
           }
         });
       }
-
-	function makeMarker(){
-		var obj = matches.pop();
-			if(obj==null){}
-			else{
-				var uluru = {lat: obj.lat, lng: obj.lng};
-
-				var firstN;
-				var lastN;
-				var name;
-				firebase.database().ref('Users/' + obj.uid).once('value').then(function(snapshot) {
-						firstN = snapshot.val().firstName;
-						lastN = snapshot.val().lastName;
-						name = firstN + " " + lastN;
-						var marker = new google.maps.Marker({
-						  position: uluru,
-						  map: map,
-						  title: name
-						});
-						makeMarker();
-				});	
-			}
-	}
 	
 	
 	
