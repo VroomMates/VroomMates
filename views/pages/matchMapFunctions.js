@@ -42,15 +42,17 @@ var config = {
 			
 			var firstN;
 			var lastN;
+			var name;
 			firebase.database().ref('Users/' + obj.uid).once('value').then(function(snapshot) {
 					firstN = snapshot.val().firstName;
 					lastN = snapshot.val().lastName;
-					var name = firstN + " " + lastN;
-					var marker = new google.maps.Marker({
-					  position: uluru,
-					  map: map,
-					  title: name
-					});
+					name = firstN + " " + lastN;
+					
+			});
+			var marker = new google.maps.Marker({
+			  position: uluru,
+			  map: map,
+			  title: name
 			});
 		}
       }
