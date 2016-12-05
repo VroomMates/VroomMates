@@ -43,21 +43,28 @@ var config = {
 			var firstN;
 			var lastN;
 			var name;
-			firebase.database().ref('Users/' + obj.uid).once('value').then(function(snapshot) {
+		firebase.database().ref('Users/' + obj.uid).once('value').then(function(snapshot) {
 					firstN = snapshot.val().firstName;
 					lastN = snapshot.val().lastName;
-					name = firstN + " " + lastN;
-					
-			}).then(function () {
-				var marker = new google.maps.Marker({
-				  position: uluru,
-				  map: map,
-				  title: name
-				});
+					name = firstN + " " + lastN;	
+			});
+			startTimer();
+			var marker = new google.maps.Marker({
+			  position: uluru,
+			  map: map,
+			  title: name
 			});
 		}
       }
 	  
+		 function startTimer () {
+			timer.start();
+			setTimeout(stopTimer,5000);
+		}		
+
+		function stopTimer () {
+			timer.stop();
+		} 
 	  function displayRoute(origin, destination, service, display) {
         service.route({
           origin: origin,
