@@ -48,11 +48,12 @@ var config = {
 					lastN = snapshot.val().lastName;
 					name = firstN + " " + lastN;
 					
-			});
-			var marker = new google.maps.Marker({
-			  position: uluru,
-			  map: map,
-			  title: name
+			}).then(function () {
+				var marker = new google.maps.Marker({
+				  position: uluru,
+				  map: map,
+				  title: name
+				});
 			});
 		}
       }
