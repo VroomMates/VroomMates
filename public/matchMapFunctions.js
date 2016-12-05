@@ -39,10 +39,12 @@ var config = {
 			if(obj==null) break;
 			
 			var uluru = {lat: obj.lat, lng: obj.lng};
-			
+		    	var name = obj.name;
+		    
 			var marker = new google.maps.Marker({
 			  position: uluru,
-			  map: map
+			  map: map,
+			  title: name
 			});
 		}
       }
