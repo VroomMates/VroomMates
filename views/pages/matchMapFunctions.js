@@ -42,7 +42,8 @@ var config = {
 			
 			var marker = new google.maps.Marker({
 			  position: uluru,
-			  map: map
+			  map: map,
+			  title:"Hello World!"
 			});
 		}
       }
