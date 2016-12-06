@@ -59,15 +59,11 @@ var config = {
 			  title: (name + "\n" + email),
 			  animation: google.maps.Animation.DROP
 			});
-			google.maps.event.addListener(marker,'click',toggleAnim(name,email));
-		}
-      }
-	  
-	  function toggleAnim(name,email){
-		  if (marker.getAnimation()!==null){
-			  marker.setAnimation(null);
+			google.maps.event.addListener(markerObj,'click',function (name,email){
+		  if (markerObj.getAnimation()!==null){
+			  markerObj.setAnimation(null);
 		  } else{
-			  marker.setAnimation(google.maps.Animation.BOUNCE);
+			  markerObj.setAnimation(google.maps.Animation.BOUNCE);
 		  }
 		  infoWindow.setContent(
           "<div>" + 
@@ -75,8 +71,10 @@ var config = {
             "<p>" + email + "</p>" +
           "</div>"
         );
-        infoWindow.open(map, marker);
-	  }
+        infoWindow.open(map, markerObj);
+	  });
+		}
+      }
 	  
 	  function displayRoute(origin, destination, service, display) {
         service.route({
