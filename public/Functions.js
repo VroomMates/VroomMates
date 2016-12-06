@@ -6,6 +6,20 @@
 		messagingSenderId: "409094544332"
 	  };
 	  firebase.initializeApp(config);
+	  
+	  var signedIn=false;
+	  var signedUp=false;
+	
+	firebase.auth().onAuthStateChanged(function(user) {
+			//if user now logged in
+			if(user&&signedUp){
+				sendEmailVerification();
+			}
+			else if(user&&signedIn){
+				Redirect_home();
+			}
+			//is database created
+		});	
   
 	//handles user sign in
     function handleSignIn() {
@@ -27,8 +41,33 @@
           // [END_EXCLUDE]
         });
         // [END authwithemail]
+		signedIn=true;
       }
     
+	//handles signing up
+    function handleSignUp() {
+	//takes in email and password
+      var email = document.getElementById('email').value;
+      var password = document.getElementById('password').value;
+      // Sign in with email and pass.
+      // [START createwithemail]
+      firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // [START_EXCLUDE]
+        if (errorCode == 'auth/weak-password') {
+          alert('The password is too weak.');
+        } else {
+          alert(errorMessage);
+        }
+        console.log(error);
+        // [END_EXCLUDE]
+      });
+	  signedUp=true;
+      // [END createwithemail]
+    }
+	
     //allows user to reset password
     function sendPasswordReset() {
       var email = document.getElementById('email').value;
@@ -54,31 +93,22 @@
       // [END sendpasswordemail];
     }
     
-	//handles checking if user signed in
-    function initApp() {
-      // [START authstatelistener]
-      firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
-          // User is signed in.
-		  Redirect_home();
-        }
+	function sendEmailVerification() {
+      // [START sendemailverification]
+      firebase.auth().currentUser.sendEmailVerification().then(function() {
+        // Email Verification sent!
+        // [START_EXCLUDE]
+        alert('Email Verification Sent!');
+		Redirect_setup();
+        // [END_EXCLUDE]
       });
+      // [END sendemailverification]
     }
 	
-	function Redirect_sign_up() {
-               window.location="sign_up.html";
-            }
-			
-	
-			
 	function Redirect_home() {
                window.location="home.html";
             }	
-	
-    window.onload = function() {
-      initApp();
-    };
-	
-	
-	
-	
+			
+	function Redirect_setup() {
+               window.location="setupInfo.html";
+            }
