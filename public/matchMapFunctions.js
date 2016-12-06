@@ -10,9 +10,10 @@ var config = {
 	  var matches = [];
 	  var userLat;
 	  var userLng;
-	  
+	  var map;
+
 	  function buildMap(){
-	  var map = new google.maps.Map(document.getElementById('map'), {
+	  	map = new google.maps.Map(document.getElementById('map'), {
 			  zoom: 10,
 			  center: {lat:53.3813,lng:-6.5918}
 			});
