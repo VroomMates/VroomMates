@@ -57,7 +57,7 @@ var config = {
 			  title: (name + "\n" + email),
 			  animation: google.maps.Animation.DROP
 			});
-			marker.addListner('click',toggleAnim(name,email);
+			marker.addListner('click',toggleAnim(name,email));
 		}
       }
 	  
