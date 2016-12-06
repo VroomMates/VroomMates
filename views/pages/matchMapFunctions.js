@@ -11,8 +11,6 @@ var config = {
 	  var userLat;
 	  var userLng;
 	  var map;
-	  var marker;
-	  var infoWindow;
 	  
 	  function buildMap(){
 	  	map = new google.maps.Map(document.getElementById('map'), {
@@ -34,10 +32,6 @@ var config = {
       function initMap() {
 		var user = {lat: userLat,lng: userLng};
 		var maynooth = {lat:53.3813,lng:-6.5918};
-		/*var map = new google.maps.Map(document.getElementById('map'), {
-			  zoom: 10,
-			  center: user
-			});*/
 			var directionsService = new google.maps.DirectionsService;
 			var directionsDisplay = new google.maps.DirectionsRenderer({
 			  map: map,
@@ -52,30 +46,32 @@ var config = {
 			var name = obj.firstName + " " + obj.lastName;
 			var email = obj.email;
 			
-			infoWindow = new google.maps.InfoWindow();
-			marker = new google.maps.Marker({
+			var infoWindow = new google.maps.InfoWindow();
+			var marker = new google.maps.Marker({
 			  position: uluru,
 			  map: map,
 			  title: (name + "\n" + email),
 			  animation: google.maps.Animation.DROP
 			});
-			google.maps.event.addListener(markerObj,'click',function (name,email){
-		  if (markerObj.getAnimation()!==null){
-			  markerObj.setAnimation(null);
-		  } else{
-			  markerObj.setAnimation(google.maps.Animation.BOUNCE);
-		  }
-		  infoWindow.setContent(
-          "<div>" + 
-            "<h1>" + name + "</h1>" +
-            "<p>" + email + "</p>" +
-          "</div>"
-        );
-        infoWindow.open(map, markerObj);
-	  });
+			google.maps.event.addListener(marker,'click', (function(marker, name, email, infoWindow){ 
+				return function() {
+				if (marker.getAnimation()!==null){
+				  marker.setAnimation(null);
+				  } else{
+					  marker.setAnimation(4);
+				  }
+					infoWindow.setContent(
+					  "<div>" + 
+						"<h1>" + name + "</h1>" +
+						"<p>" + email + "</p>" +
+					  "</div>"
+					);
+					infoWindow.open(map,marker);
+				};
+				
+			})(marker,name, email,infoWindow));  
 		}
-      }
-	  
+	  }
 	  function displayRoute(origin, destination, service, display) {
         service.route({
           origin: origin,
@@ -90,6 +86,3 @@ var config = {
           }
         });
       }
-	
-	
-	
