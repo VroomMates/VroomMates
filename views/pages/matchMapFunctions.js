@@ -12,6 +12,7 @@ var config = {
 	  var userLng;
 	  var map;
 	  var marker;
+	  var infoWindow;
 	  
 	  function buildMap(){
 	  	map = new google.maps.Map(document.getElementById('map'), {
@@ -51,7 +52,7 @@ var config = {
 			var name = obj.firstName + " " + obj.lastName;
 			var email = obj.email;
 			
-			var infoWindow = new google.maps.InfoWindow();
+			infoWindow = new google.maps.InfoWindow();
 			marker = new google.maps.Marker({
 			  position: uluru,
 			  map: map,
