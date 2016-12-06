@@ -36,30 +36,24 @@ function validateForm(){
 	else{
 		valid=true;
 		var userId = firebase.auth().currentUser.uid;
-		writeUserData(userId, firstName, lastName, gender, driver, lat, lng);
+		var email = firebase.auth().currentUser.email;
+		writeUserData(userId, firstName, lastName, gender, driver, lat, lng, email);
 	}
     });
 	return valid;
 }
 
-function writeUserData(userId, firstName, lastName, gender, driver, lat, lng) {
+function writeUserData(userId, firstName, lastName, gender, driver, lat, lng, email) {
   var reference = firebase.database().ref('Users/'+userId);
   reference.child('firstName').set(firstName);
   reference.child('lastName').set(lastName);
   reference.child('gender').set(gender);
   reference.child('location/lat/').set(lat);
   reference.child('location/lng/').set(lng);
+  reference.child('email').set(email);
   reference.child('driver').set(driver,function Redirect_setupSchedule(){
 		window.location = "setupSchedule.html";
 });
-}
-
-function readUserData(){
-	var user = firebase.auth().currentUser.uid;
-	firebase.database().ref('Users/' + user).once('value').then(function(snapshot) {
-		document.getElementById('firstName').value = snapshot.val().firstName;
-		document.getElementById('lastName').value = snapshot.val().lastName;
-	});
 }
 
 function initialize() {

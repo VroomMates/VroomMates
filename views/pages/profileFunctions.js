@@ -43,7 +43,7 @@ function readUserData(user){
 			  if (status == google.maps.GeocoderStatus.OK) {
 				address  = results[0].formatted_address;
 				document.getElementById('address').value = address;
-				//document.getElementById('schedule').disabled=false; DO NOT ENABLE NEXT PAGE NOT READY
+				document.getElementById('schedule').disabled=false;
 				document.getElementById('home').disabled=false;
 			  }
 		});

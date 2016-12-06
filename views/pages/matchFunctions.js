@@ -185,25 +185,28 @@ var config = {
 			var uid = childSnapshot.key;
 			var lat = childSnapshot.val().location.lat;
 			var lng = childSnapshot.val().location.lng;
+			var email = childSnapshot.val().email;
+			var firstName = childSnapshot.val().firstName;
+			var lastName = childSnapshot.val().lastName;
 			if(uid!=firebase.auth().currentUser.uid){
 				if((lat>=userLat&&lat<=mayLat)&&(lng<=userLng&&lng>=mayLng)){
 					//alert(uid);
-					var object = {uid: uid, lat:lat, lng:lng};
+					var object = {uid: uid, lat:lat, lng:lng, email:email, firstName: firstName, lastName: lastName};
 					matches.push(object);
 				}
 				else if((lat>=userLat&&lat<=mayLat)&&(lng>=userLng&&lng<=mayLng)){
 					//alert(uid);
-					var object = {uid: uid, lat:lat, lng:lng};
+					var object = {uid: uid, lat:lat, lng:lng, email:email, firstName: firstName, lastName: lastName};
 					matches.push(object);
 				}
 				else if((lat<=userLat&&lat>=mayLat)&&(lng<=userLng&&lng>=mayLng)){
 					//alert(uid);
-					var object = {uid: uid, lat:lat, lng:lng};
+					var object = {uid: uid, lat:lat, lng:lng, email:email, firstName: firstName, lastName: lastName};
 					matches.push(object);
 				}
 				else if((lat<=userLat&&lat>=mayLat)&&(lng>=userLng&&lng<=mayLng)){
 					//alert(uid);
-					var object = {uid: uid, lat:lat, lng:lng};
+					var object = {uid: uid, lat:lat, lng:lng, email:email, firstName: firstName, lastName: lastName};
 					matches.push(object);
 				}
 			}

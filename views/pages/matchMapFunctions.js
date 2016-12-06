@@ -11,6 +11,13 @@ var config = {
 	  var userLat;
 	  var userLng;
 	  
+	  function buildMap(){
+	  var map = new google.maps.Map(document.getElementById('map'), {
+			  zoom: 10,
+			  center: {lat:53.3813,lng:-6.5918}
+			});
+		}
+	  
 	  firebase.auth().onAuthStateChanged(function(user) {
 			firebase.database().ref('Users/' + user.uid).once('value').then(function(snapshot) {
 					matches = snapshot.val().match;
@@ -39,12 +46,13 @@ var config = {
 			if(obj==null) break;
 			
 			var uluru = {lat: obj.lat, lng: obj.lng};
-		    	var name = obj.name;
-		    
+			var name = obj.firstName + " " + obj.lastName;
+			var email = obj.email;
+			
 			var marker = new google.maps.Marker({
 			  position: uluru,
 			  map: map,
-			  title: name
+			  title: (name + "\n" + email)
 			});
 		}
       }
