@@ -50,13 +50,31 @@ var config = {
 			var name = obj.firstName + " " + obj.lastName;
 			var email = obj.email;
 			
+			var infoWindow = new google.maps.InfoWindow();
 			var marker = new google.maps.Marker({
 			  position: uluru,
 			  map: map,
-			  title: (name + "\n" + email)
+			  title: (name + "\n" + email),
+			  animation: google.maps.Animation.DROP
 			});
+			marker.addListner('click',toggleAnim(name,email);
 		}
       }
+	  
+	  function toggleAnim(name,email){
+		  if (marker.getAnimation()!==null){
+			  marker.setAnimation(null);
+		  } else{
+			  marker.setAnimation(google.maps.Animation.BOUNCE);
+		  }
+		  infoWindow.setContent(
+          "<div>" + 
+            "<h1>" + name + "</h1>" +
+            "<p>" + email + "</p>" +
+          "</div>"
+        );
+        infoWindow.open(map, marker);
+	  }
 	  
 	  function displayRoute(origin, destination, service, display) {
         service.route({
