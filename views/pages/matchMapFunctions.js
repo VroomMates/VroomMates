@@ -31,10 +31,10 @@ var config = {
       function initMap() {
 		var user = {lat: userLat,lng: userLng};
 		var maynooth = {lat:53.3813,lng:-6.5918};
-		var map = new google.maps.Map(document.getElementById('map'), {
+		/*var map = new google.maps.Map(document.getElementById('map'), {
 			  zoom: 10,
 			  center: user
-			});
+			});*/
 			var directionsService = new google.maps.DirectionsService;
 			var directionsDisplay = new google.maps.DirectionsRenderer({
 			  map: map,
