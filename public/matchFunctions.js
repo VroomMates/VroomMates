@@ -40,6 +40,7 @@ var config = {
 	  }
 	  
 	  function store(){
+			firebase.database().ref('Users/'+userUID).child('match').remove();
 			firebase.database().ref('Users/'+userUID+'/match/').update(matched,function redirect_home() {window.location = "match.html"});
 	  }
 	  
