@@ -62,7 +62,7 @@ var config = {
 	
 	//above + left
 	if(you.lat>=end.lat&&you.lng<=end.lng){
-		var area = .2;
+		var area = .1;
 		var ratiolat = Math.abs(you.lat - end.lat)/100;
 		var ratiolng = Math.abs(you.lng - end.lng)/100;
 		var stoplat = (poslat + (ratiolat*300));
@@ -87,13 +87,13 @@ var config = {
 			if(poslng>stoplng){
 				poslng -= ratiolng;
 			}
-			area += .1;
+			area += .001;
 			//alert(area);
 		}
 	}
 	//above + right
 	if(you.lat>=end.lat&&you.lng>=end.lng){
-		var area = .2;
+		var area = .1;
 		var ratiolat = Math.abs(you.lat - end.lat)/100;
 		var ratiolng = Math.abs(you.lng - end.lng)/100;
 		var stoplat = (poslat + (ratiolat*300));
@@ -115,14 +115,14 @@ var config = {
 			if(poslng<stoplng){
 				poslng += ratiolng;
 			}
-			area += .1;
+			area += .001;
 			//alert(area);
 		}
 	}
 
 	//below + left
 	if(you.lat<=end.lat&&you.lng<=end.lng){
-		var area = .2;
+		var area = .1;
 		var ratiolat = Math.abs(you.lat - end.lat)/100;
 		var ratiolng = Math.abs(you.lng - end.lng)/100;
 		var stoplat = (poslat - (ratiolat*300));
@@ -146,7 +146,7 @@ var config = {
 			if(poslng>stoplng){
 				poslng -= ratiolng;
 			}
-			area += .1;
+			area += .001;
 			//alert(area);
 		}
 	}
@@ -154,7 +154,7 @@ var config = {
 	//below + right 
 	
 	if(you.lat<=end.lat&&you.lng>=end.lng){
-		var area = .2;
+		var area = .1;
 		var ratiolat = Math.abs(you.lat - end.lat)/100;
 		var ratiolng = Math.abs(you.lng - end.lng)/100;
 		var stoplat = (poslat - (ratiolat*400));
@@ -178,7 +178,7 @@ var config = {
 			if(poslng<stoplng){
 				poslng += ratiolng;
 			}
-			area += .1;
+			area += .001;
 			//alert(area);
 		}
 	}
