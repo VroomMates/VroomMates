@@ -66,5 +66,13 @@ function writeUserData(userId, morn, even, day) {
   });
 }
 function Redirect_Match(){
-		window.location="setupMatch.html";
+firebase.database().ref('Users/' + firebase.auth().currentUser.uid).once('value').then(function(snapshot) {
+		var driver = snapshot.val().driver;
+		if(driver=="yes"){
+			window.location="setupMatch.html";
+		}
+		else if(driver=="no"){
+			window.location="setupMatchPass.html";
+		}
+});
 }
