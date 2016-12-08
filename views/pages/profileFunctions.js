@@ -198,4 +198,26 @@ function writeUserData2(userId, lat, lng) {
   reference.child('driver').set(driverNew,function (){valid = true;redirect_Home();});
 }
 
+function initialize() {
+        var addressbox = (document.getElementById('address'));
+        var autocomplete = new google.maps.places.Autocomplete(addressbox);
+        autocomplete.setTypes(['geocode']);
+        google.maps.event.addListener(autocomplete, 'place_changed', function() {
+            var place = autocomplete.getPlace();
+            if (!place.geometry) {
+                return;
+            }
+
+        var addressbox = '';
+        if (place.address_components) {
+            addressbox = [
+                (place.address_components[0] && place.address_components[0].short_name || ''),
+                (place.address_components[1] && place.address_components[1].short_name || ''),
+                (place.address_components[2] && place.address_components[2].short_name || '')
+                ].join(' ');
+        }
+      });
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+
 
