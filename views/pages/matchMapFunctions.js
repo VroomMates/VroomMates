@@ -77,7 +77,8 @@ var config = {
           origin: origin,
           destination: destination,
           travelMode: 'DRIVING',
-          avoidTolls: true
+          avoidTolls: true , 
+	  suppressMarkers: true // here
         }, function(response, status) {
           if (status === 'OK') {
             display.setDirections(response);
