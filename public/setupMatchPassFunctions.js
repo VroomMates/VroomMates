@@ -62,7 +62,7 @@ var config = {
 	
 	//above + left
 	if(you.lat>=end.lat&&you.lng<=end.lng){
-		var area = .1;
+		var area = .05;
 		var ratiolat = Math.abs(you.lat - end.lat)/100;
 		var ratiolng = Math.abs(you.lng - end.lng)/100;
 		var stoplat = (poslat + (ratiolat*300));
@@ -93,7 +93,7 @@ var config = {
 	}
 	//above + right
 	if(you.lat>=end.lat&&you.lng>=end.lng){
-		var area = .1;
+		var area = .05;
 		var ratiolat = Math.abs(you.lat - end.lat)/100;
 		var ratiolng = Math.abs(you.lng - end.lng)/100;
 		var stoplat = (poslat + (ratiolat*300));
@@ -122,7 +122,7 @@ var config = {
 
 	//below + left
 	if(you.lat<=end.lat&&you.lng<=end.lng){
-		var area = .1;
+		var area = .05;
 		var ratiolat = Math.abs(you.lat - end.lat)/100;
 		var ratiolng = Math.abs(you.lng - end.lng)/100;
 		var stoplat = (poslat - (ratiolat*300));
@@ -154,7 +154,7 @@ var config = {
 	//below + right 
 	
 	if(you.lat<=end.lat&&you.lng>=end.lng){
-		var area = .1;
+		var area = .05;
 		var ratiolat = Math.abs(you.lat - end.lat)/100;
 		var ratiolng = Math.abs(you.lng - end.lng)/100;
 		var stoplat = (poslat - (ratiolat*400));
@@ -184,9 +184,11 @@ var config = {
 	}
 	}
 	
+	
+	
 	function search(){
-		//var mayLat = 53.3813;
-		//var mayLng = -6.5918;
+		var mayLat = 53.3813;
+		var mayLng = -6.5918;
 		
 		
 		firebase.database().ref().once("child_added", function(snapshot) {
@@ -197,9 +199,24 @@ var config = {
 			var email = childSnapshot.val().email;
 			var firstName = childSnapshot.val().firstName;
 			var lastName = childSnapshot.val().lastName;
+			var driver = childSnapshot.val().driver;
 			if(uid!=firebase.auth().currentUser.uid){
+				if((lat>=userLat&&lat<=mayLat)&&(lng<=userLng&&lng>=mayLng)){
+					
+				}
+				else if((lat>=userLat&&lat<=mayLat)&&(lng>=userLng&&lng<=mayLng)){
+					
+				}
+				else if((lat<=userLat&&lat>=mayLat)&&(lng<=userLng&&lng>=mayLng)){
+					
+				}
+				else if((lat<=userLat&&lat>=mayLat)&&(lng>=userLng&&lng<=mayLng)){
+					
+				}
+				else if(driver=="yes"){
 					var object = {uid: uid, lat:lat, lng:lng, email:email, firstName: firstName, lastName: lastName};
-					matches.push(object);
+						matches.push(object);
+				}
 			}
 		})
 		matching();
