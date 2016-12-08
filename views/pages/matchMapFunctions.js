@@ -34,7 +34,8 @@ var config = {
 		var maynooth = {lat:53.3813,lng:-6.5918};
 			var directionsService = new google.maps.DirectionsService;
 			var directionsDisplay = new google.maps.DirectionsRenderer({
-			  map: map,
+			  map: map , 
+	  		  suppressMarkers: true // here
 			});
 			displayRoute(user, maynooth, directionsService,directionsDisplay);
 			
@@ -77,8 +78,7 @@ var config = {
           origin: origin,
           destination: destination,
           travelMode: 'DRIVING',
-          avoidTolls: true , 
-	  suppressMarkers: true // here
+          avoidTolls: true
         }, function(response, status) {
           if (status === 'OK') {
             display.setDirections(response);
