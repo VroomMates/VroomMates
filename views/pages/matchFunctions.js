@@ -68,13 +68,14 @@ var config = {
 	  }
 	  
 	  function matchDriver(obj){
+		var driverArea = 0.05;
 		var str = {//mullingar
-			lat: obj.lat,
-			lng: obj.lng
-		};
-		var you = {//kinnegad
 			lat:userLat,
 			lng:userLng
+		};
+		var you = {//kinnegad
+			lat: obj.lat,
+			lng: obj.lng
 		};
 		
 		var end = {//maynooth
@@ -96,7 +97,7 @@ var config = {
 					var latdiff = Math.abs(you.lat - poslat);
 					//alert(lngdiff + " | " + latdiff);
 
-					if( (lngdiff<=.2) && (latdiff<=.2)){
+					if( (lngdiff<=driverArea) && (latdiff<=driverArea)){
 						latdiff = (1-latdiff)*6;
 						lngdiff = (1-lngdiff)*6;
 						matched.push(obj);
@@ -124,7 +125,7 @@ var config = {
 				var latdiff = Math.abs(you.lat - poslat);
 				//alert(lngdiff + " | " + latdiff);
 
-				if( (lngdiff<.2) && (latdiff<.2)){
+				if( (lngdiff<driverArea) && (latdiff<driverArea)){
 					latdiff = (1-latdiff)*6;
 					lngdiff = (1-lngdiff)*6;
 					matched.push(obj);
@@ -152,7 +153,7 @@ var config = {
 				var latdiff = Math.abs(you.lat - poslat);
 				//alert(lngdiff + " | " + latdiff);
 
-				if( (lngdiff<.2) && (latdiff<.2)){
+				if( (lngdiff<driverArea) && (latdiff<driverArea)){
 					latdiff = (1-latdiff)*6;
 					lngdiff = (1-lngdiff)*6;
 					matched.push(obj);
@@ -179,7 +180,7 @@ var config = {
 				var latdiff = Math.abs(you.lat - poslat);
 				//alert(lngdiff + " | " + latdiff);
 
-				if( (lngdiff<.2) && (latdiff<.2)){
+				if( (lngdiff<driverArea) && (latdiff<driverArea)){
 					latdiff = (1-latdiff)*6;
 					lngdiff = (1-lngdiff)*6;
 					matched.push(obj);
@@ -200,6 +201,7 @@ var config = {
 	  }
 	  
 	function searchDriver(){
+		var areaBehind=0.02;
 		var mayLat = 53.3813;
 		var mayLng = -6.5918;
 		
@@ -213,22 +215,22 @@ var config = {
 			var firstName = childSnapshot.val().firstName;
 			var lastName = childSnapshot.val().lastName;
 			if(uid!=firebase.auth().currentUser.uid){
-				if((lat>=userLat&&lat<=mayLat)&&(lng<=userLng&&lng>=mayLng)){
+				if((lat>=(userLat-areaBehind)&&lat<=mayLat)&&(lng<=(userLng+areaBehind)&&lng>=mayLng)){
 					//alert(uid);
 					var object = {uid: uid, lat:lat, lng:lng, email:email, firstName: firstName, lastName: lastName};
 					matches.push(object);
 				}
-				else if((lat>=userLat&&lat<=mayLat)&&(lng>=userLng&&lng<=mayLng)){
+				else if((lat>=(userLat-areaBehind)&&lat<=mayLat)&&(lng>=(userLng-areaBehind)&&lng<=mayLng)){
 					//alert(uid);
 					var object = {uid: uid, lat:lat, lng:lng, email:email, firstName: firstName, lastName: lastName};
 					matches.push(object);
 				}
-				else if((lat<=userLat&&lat>=mayLat)&&(lng<=userLng&&lng>=mayLng)){
+				else if((lat<=(userLat+areaBehind)&&lat>=mayLat)&&(lng<=(userLng+areaBehind)&&lng>=mayLng)){
 					//alert(uid);
 					var object = {uid: uid, lat:lat, lng:lng, email:email, firstName: firstName, lastName: lastName};
 					matches.push(object);
 				}
-				else if((lat<=userLat&&lat>=mayLat)&&(lng>=userLng&&lng<=mayLng)){
+				else if((lat<=(userLat+areaBehind)&&lat>=mayLat)&&(lng>=(userLng-areaBehind)&&lng<=mayLng)){
 					//alert(uid);
 					var object = {uid: uid, lat:lat, lng:lng, email:email, firstName: firstName, lastName: lastName};
 					matches.push(object);
@@ -241,9 +243,9 @@ var config = {
 	
 	function matchPass(obj){
 			
-	var str = {//rochfort
-		lat:obj.lat,
-		lng:obj.lng
+	var str = {//mullingar
+		lat: obj.lat,
+		lng: obj.lng
 	};
 	var you = {//kinnegad
 		lat:userLat,
@@ -388,6 +390,7 @@ var config = {
 	
 	
 	function searchPass(){
+		var areaBehind = 0.02;
 		var mayLat = 53.3813;
 		var mayLng = -6.5918;
 		
@@ -402,16 +405,16 @@ var config = {
 			var lastName = childSnapshot.val().lastName;
 			var isDriver = childSnapshot.val().driver;
 			if(uid!=firebase.auth().currentUser.uid){
-				if((lat>=userLat&&lat<=mayLat)&&(lng<=userLng&&lng>=mayLng)){
+				if((lat>(userLat+areaBehind)&&lat<mayLat)&&(lng<(userLng-areaBehind)&&lng>mayLng)){
 					
 				}
-				else if((lat>=userLat&&lat<=mayLat)&&(lng>=userLng&&lng<=mayLng)){
+				else if((lat>(userLat+areaBehind)&&lat<mayLat)&&(lng>(userLng+areaBehind)&&lng<mayLng)){
 					
 				}
-				else if((lat<=userLat&&lat>=mayLat)&&(lng<=userLng&&lng>=mayLng)){
+				else if((lat<(userLat-areaBehind)&&lat>mayLat)&&(lng<(userLng-areaBehind)&&lng>mayLng)){
 					
 				}
-				else if((lat<=userLat&&lat>=mayLat)&&(lng>=userLng&&lng<=mayLng)){
+				else if((lat<(userLat-areaBehind)&&lat>mayLat)&&(lng>(userLng+areaBehind)&&lng<mayLng)){
 					
 				}
 				else if(isDriver=="yes"){
