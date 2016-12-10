@@ -40,9 +40,9 @@ var config = {
 	 
 	 function match(obj){
 			
-	var str = {//rochfort
-		lat:obj.lat,
-		lng:obj.lng
+	var str = {//mullingar
+		lat: obj.lat,
+		lng: obj.lng
 	};
 	var you = {//kinnegad
 		lat:userLat,
@@ -187,6 +187,7 @@ var config = {
 	
 	
 	function search(){
+		var areaBehind = 0.02;
 		var mayLat = 53.3813;
 		var mayLng = -6.5918;
 		
@@ -201,16 +202,16 @@ var config = {
 			var lastName = childSnapshot.val().lastName;
 			var driver = childSnapshot.val().driver;
 			if(uid!=firebase.auth().currentUser.uid){
-				if((lat>=userLat&&lat<=mayLat)&&(lng<=userLng&&lng>=mayLng)){
+				if((lat>(userLat+areaBehind)&&lat<mayLat)&&(lng<(userLng-areaBehind)&&lng>mayLng)){
 					
 				}
-				else if((lat>=userLat&&lat<=mayLat)&&(lng>=userLng&&lng<=mayLng)){
+				else if((lat>(userLat+areaBehind)&&lat<mayLat)&&(lng>(userLng+areaBehind)&&lng<mayLng)){
 					
 				}
-				else if((lat<=userLat&&lat>=mayLat)&&(lng<=userLng&&lng>=mayLng)){
+				else if((lat<(userLat-areaBehind)&&lat>mayLat)&&(lng<(userLng-areaBehind)&&lng>mayLng)){
 					
 				}
-				else if((lat<=userLat&&lat>=mayLat)&&(lng>=userLng&&lng<=mayLng)){
+				else if((lat<(userLat-areaBehind)&&lat>mayLat)&&(lng>(userLng+areaBehind)&&lng<mayLng)){
 					
 				}
 				else if(driver=="yes"){

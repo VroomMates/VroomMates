@@ -39,13 +39,14 @@ var config = {
 	  }
 	  
 	  function match(obj){
+	    var area = 0.05;
 		var str = {//mullingar
-			lat: obj.lat,
-			lng: obj.lng
-		};
-		var you = {//kinnegad
 			lat:userLat,
 			lng:userLng
+		};
+		var you = {//kinnegad
+			lat: obj.lat,
+			lng: obj.lng
 		};
 		
 		var end = {//maynooth
@@ -67,7 +68,7 @@ var config = {
 					var latdiff = Math.abs(you.lat - poslat);
 					//alert(lngdiff + " | " + latdiff);
 
-					if( (lngdiff<=.2) && (latdiff<=.2)){
+					if( (lngdiff<=area) && (latdiff<=area)){
 						latdiff = (1-latdiff)*6;
 						lngdiff = (1-lngdiff)*6;
 						matched.push(obj);
@@ -95,7 +96,7 @@ var config = {
 				var latdiff = Math.abs(you.lat - poslat);
 				//alert(lngdiff + " | " + latdiff);
 
-				if( (lngdiff<.2) && (latdiff<.2)){
+				if( (lngdiff<area) && (latdiff<area)){
 					latdiff = (1-latdiff)*6;
 					lngdiff = (1-lngdiff)*6;
 					matched.push(obj);
@@ -123,7 +124,7 @@ var config = {
 				var latdiff = Math.abs(you.lat - poslat);
 				//alert(lngdiff + " | " + latdiff);
 
-				if( (lngdiff<.2) && (latdiff<.2)){
+				if( (lngdiff<area) && (latdiff<area)){
 					latdiff = (1-latdiff)*6;
 					lngdiff = (1-lngdiff)*6;
 					matched.push(obj);
@@ -150,7 +151,7 @@ var config = {
 				var latdiff = Math.abs(you.lat - poslat);
 				//alert(lngdiff + " | " + latdiff);
 
-				if( (lngdiff<.2) && (latdiff<.2)){
+				if( (lngdiff<area) && (latdiff<area)){
 					latdiff = (1-latdiff)*6;
 					lngdiff = (1-lngdiff)*6;
 					matched.push(obj);
@@ -171,6 +172,7 @@ var config = {
 	  }
 	  
 	function search(){
+		var areaBehind = 0.02;
 		var mayLat = 53.3813;
 		var mayLng = -6.5918;
 		
@@ -184,22 +186,22 @@ var config = {
 			var firstName = childSnapshot.val().firstName;
 			var lastName = childSnapshot.val().lastName;
 			if(uid!=firebase.auth().currentUser.uid){
-				if((lat>=userLat&&lat<=mayLat)&&(lng<=userLng&&lng>=mayLng)){
+				if((lat>=(userLat-areaBehind)&&lat<=mayLat)&&(lng<=(userLng+areaBehind)&&lng>=mayLng)){
 					//alert(uid);
 					var object = {uid: uid, lat:lat, lng:lng, email:email, firstName: firstName, lastName: lastName};
 					matches.push(object);
 				}
-				else if((lat>=userLat&&lat<=mayLat)&&(lng>=userLng&&lng<=mayLng)){
+				else if((lat>=(userLat-areaBehind)&&lat<=mayLat)&&(lng>=(userLng-areaBehind)&&lng<=mayLng)){
 					//alert(uid);
 					var object = {uid: uid, lat:lat, lng:lng, email:email, firstName: firstName, lastName: lastName};
 					matches.push(object);
 				}
-				else if((lat<=userLat&&lat>=mayLat)&&(lng<=userLng&&lng>=mayLng)){
+				else if((lat<=(userLat+areaBehind)&&lat>=mayLat)&&(lng<=(userLng+areaBehind)&&lng>=mayLng)){
 					//alert(uid);
 					var object = {uid: uid, lat:lat, lng:lng, email:email, firstName: firstName, lastName: lastName};
 					matches.push(object);
 				}
-				else if((lat<=userLat&&lat>=mayLat)&&(lng>=userLng&&lng<=mayLng)){
+				else if((lat<=(userLat+areaBehind)&&lat>=mayLat)&&(lng>=(userLng-areaBehind)&&lng<=mayLng)){
 					//alert(uid);
 					var object = {uid: uid, lat:lat, lng:lng, email:email, firstName: firstName, lastName: lastName};
 					matches.push(object);
