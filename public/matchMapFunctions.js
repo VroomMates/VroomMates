@@ -49,7 +49,7 @@ var config = {
 		var startMarker = new google.maps.Marker({
 			  position: user,
 			  map: map,
-			  title: ("You Are \n Here"),
+			  store: ("You Are \n Here"),
 			  icon: image ,
 			  animation: google.maps.Animation.DROP
 			});
@@ -57,7 +57,7 @@ var config = {
 		var endMarker = new google.maps.Marker({
 			  position: maynooth,
 			  map: map,
-			  title: ("Maynooth"),
+			  store: ("Maynooth"),
 			  icon: image,
 			  animation: google.maps.Animation.DROP
 			});
@@ -106,7 +106,7 @@ var config = {
 			if(!markers.length==0){
 				for(var i=0;i<markers.length;i++){
 					if(Math.abs(markers[i].position.lat()-uluru.lat)<0.002&&Math.abs(markers[i].position.lng()-uluru.lng)<0.002){
-						markers[i].title+=("<div>" + 
+						markers[i].store+=("<div>" + 
 							"<h3>" + name + "</h3>" +
 							"<p>" + email + "</p>" +
 						  "</div>");
@@ -119,7 +119,7 @@ var config = {
 				var marker = new google.maps.Marker({
 				  position: uluru,
 				  map: map,
-				  title: ("<div>" + 
+				  store: ("<div>" + 
 							"<h3>" + name + "</h3>" +
 							"<p>" + email + "</p>" +
 						  "</div>"),
@@ -133,7 +133,7 @@ var config = {
 						  marker.setAnimation(4);
 					  }
 						infoWindow.setContent(
-							marker.title
+							marker.store
 						);
 						infoWindow.open(map,marker);
 					};
