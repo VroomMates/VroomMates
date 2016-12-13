@@ -71,7 +71,8 @@
 	
     //allows user to reset password
     function sendPasswordReset() {
-      var email = document.getElementById('reg_email').value;
+      var email = document.getElementById('res_email').value;
+	  alert(email);
       // [START sendpasswordemail]
       firebase.auth().sendPasswordResetEmail(email).then(function() {
         // Password Reset Email Sent!
