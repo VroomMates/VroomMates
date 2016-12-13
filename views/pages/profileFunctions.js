@@ -35,7 +35,7 @@ function readUserData(user){
 		
 		document.getElementById('firstName').value = firstName;
 		document.getElementById('lastName').value = lastName;
-		alert("setting driver");
+		alert(driver);
 		document.getElementById('driver'+driver).checked = true;
 		document.getElementById('gender'+gender).checked = true;
 		
