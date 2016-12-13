@@ -1,133 +1,193 @@
 <!DOCTYPE html>
 <html>
-	<head>
-	<script src="https://www.gstatic.com/firebasejs/3.5.1/firebase.js"></script>
+<head>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
 
-    <script src="https://www.gstatic.com/firebasejs/3.5.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.5.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.5.0/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/live/0.5/firebase-ui-auth.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/live/0.5/firebase-ui-auth.css">
-	<script src="editScheduleFunctions.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>VroomMates</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	
-			<p>Monday Morning</p>
+	
+<script src="https://www.gstatic.com/firebasejs/3.5.1/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.5.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.5.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.5.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/ui/live/0.5/firebase-ui-auth.js"></script>
+		
+<script src="editScheduleFunctions.js"></script>
+		
+<link rel="stylesheet" href="style.css">
+		
+</head>
+<body>
+	
+<nav class="navbar navbar-inverse">
+	  <div class="container-fluid">		  
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+      			</button>
+		  		<a class="navbar-brand" href="#" onclick="Redirect_home();">VroomMates</a>
+			</div>
+		  	
+	  </div>
+</nav>
+	
+<div class="container">
+	
+<div class="tab-content">
+	
+<div id="menu2">
+
+<div class="text-center" style="padding:50px 0">
+<div class="logo">Edit your Schedule!</div>
+	<div class="login-form-1">
+				
+					
+		<div class="main-login-form">
+			<div class="login-group">
+				<div class="form-group">
 			
-			<select id = "morn1">
-  			<option value="" disabled selected hidden>Please Choose a Time..</option>
-			<option value="7 - 8">7 - 8</option>
-  			<option value="8 - 9">8 - 9</option>
-  			<option value="9 - 10">9 - 10</option>
-  			<option value="10 - 11">10 - 11</option>
-			<option value = "11 - 12">11 - 12</option>
-			<option value ="Flexible">Flexible</option>
-			</select>
-		
-			<p>Monday Evening</p>
-			<select id = "even1">
-  			<option value="" disabled selected hidden>Please Choose a Time..</option>
-			<option value="12 - 1">12 - 1</option>
-  			<option value="1 - 2">1 - 2</option>
-  			<option value="2 - 3">2 - 3</option>
-  			<option value="3 - 4">3 - 4</option>
-			<option value = "4 - 5">4 - 5</option>
-			<option value = "5 - 6">5 - 6</option>	
-			<option value ="Flexible">Flexible</option>
-			</select>
+				<select id = "morn1" class="form-control">
+				<option value="" disabled selected hidden>Monday Morning</option>
+				<option value="7 - 8">7 - 8</option>
+				<option value="8 - 9">8 - 9</option>
+				<option value="9 - 10">9 - 10</option>
+				<option value="10 - 11">10 - 11</option>
+				<option value = "11 - 12">11 - 12</option>
+				<option value ="Flexible">Flexible</option>
+				</select>
+
+				<select id = "even1" class="form-control">
+				<option value="" disabled selected hidden>Monday Evening</option>
+				<option value="12 - 1">12 - 1</option>
+				<option value="1 - 2">1 - 2</option>
+				<option value="2 - 3">2 - 3</option>
+				<option value="3 - 4">3 - 4</option>
+				<option value = "4 - 5">4 - 5</option>
+				<option value = "5 - 6">5 - 6</option>	
+				<option value ="Flexible">Flexible</option>
+				</select>
+				</div>
+				
+				<div class="form-group">
 			
-			<p>Tuesday Morning</p>
-			<select id = "morn2">
-  			<option value="" disabled selected hidden>Please Choose a Time..</option>
-			<option value="7 - 8">7 - 8</option>
-  			<option value="8 - 9">8 - 9</option>
-  			<option value="9 - 10">9 - 10</option>
-  			<option value="10 - 11">10 - 11</option>
-			<option value = "11 - 12">11 - 12</option>
-			<option value ="Flexible">Flexible</option>
-			</select>			
+				<select id = "morn2" class="form-control">
+				<option value="" disabled selected hidden>Tuesday Morning</option>
+				<option value="7 - 8">7 - 8</option>
+				<option value="8 - 9">8 - 9</option>
+				<option value="9 - 10">9 - 10</option>
+				<option value="10 - 11">10 - 11</option>
+				<option value = "11 - 12">11 - 12</option>
+				<option value ="Flexible">Flexible</option>
+				</select>
+
+				<select id = "even2" class="form-control">
+				<option value="" disabled selected hidden>Tuesday Evening</option>
+				<option value="12 - 1">12 - 1</option>
+				<option value="1 - 2">1 - 2</option>
+				<option value="2 - 3">2 - 3</option>
+				<option value="3 - 4">3 - 4</option>
+				<option value = "4 - 5">4 - 5</option>
+				<option value = "5 - 6">5 - 6</option>	
+				<option value ="Flexible">Flexible</option>
+				</select>
+				</div>
+				
+				<div class="form-group">
 			
-			<p>Tuesday Evening</p>
-			<select id = "even2">
-  			<option value="" disabled selected hidden>Please Choose a Time..</option>
-			<option value="12 - 1">12 - 1</option>
-  			<option value="1 - 2">1 - 2</option>
-  			<option value="2 - 3">2 - 3</option>
-  			<option value="3 - 4">3 - 4</option>
-			<option value = "4 - 5">4 - 5</option>
-			<option value = "5 - 6">5 - 6</option>	
-			<option value ="Flexible">Flexible</option>
-			</select>
+				<select id = "morn3" class="form-control">
+				<option value="" disabled selected hidden>Wednesday Morning</option>
+				<option value="7 - 8">7 - 8</option>
+				<option value="8 - 9">8 - 9</option>
+				<option value="9 - 10">9 - 10</option>
+				<option value="10 - 11">10 - 11</option>
+				<option value = "11 - 12">11 - 12</option>
+				<option value ="Flexible">Flexible</option>
+				</select>
+
+				<select id = "even3" class="form-control">
+				<option value="" disabled selected hidden>Wednesday Evening</option>
+				<option value="12 - 1">12 - 1</option>
+				<option value="1 - 2">1 - 2</option>
+				<option value="2 - 3">2 - 3</option>
+				<option value="3 - 4">3 - 4</option>
+				<option value = "4 - 5">4 - 5</option>
+				<option value = "5 - 6">5 - 6</option>	
+				<option value ="Flexible">Flexible</option>
+				</select>
+				</div>
+				
+				<div class="form-group">
+			
+				<select id = "morn4" class="form-control">
+				<option value="" disabled selected hidden>Thursday Morning</option>
+				<option value="7 - 8">7 - 8</option>
+				<option value="8 - 9">8 - 9</option>
+				<option value="9 - 10">9 - 10</option>
+				<option value="10 - 11">10 - 11</option>
+				<option value = "11 - 12">11 - 12</option>
+				<option value ="Flexible">Flexible</option>
+				</select>
+
+				<select id = "even4" class="form-control">
+				<option value="" disabled selected hidden>Thursday Evening</option>
+				<option value="12 - 1">12 - 1</option>
+				<option value="1 - 2">1 - 2</option>
+				<option value="2 - 3">2 - 3</option>
+				<option value="3 - 4">3 - 4</option>
+				<option value = "4 - 5">4 - 5</option>
+				<option value = "5 - 6">5 - 6</option>	
+				<option value ="Flexible">Flexible</option>
+				</select>
+				</div>
+				
+				<div class="form-group">
+			
+				<select id = "morn5" class="form-control">
+				<option value="" disabled selected hidden>Friday Morning</option>
+				<option value="7 - 8">7 - 8</option>
+				<option value="8 - 9">8 - 9</option>
+				<option value="9 - 10">9 - 10</option>
+				<option value="10 - 11">10 - 11</option>
+				<option value = "11 - 12">11 - 12</option>
+				<option value ="Flexible">Flexible</option>
+				</select>
+
+				<select id = "even5" class="form-control">
+				<option value="" disabled selected hidden>Friday Evening</option>
+				<option value="12 - 1">12 - 1</option>
+				<option value="1 - 2">1 - 2</option>
+				<option value="2 - 3">2 - 3</option>
+				<option value="3 - 4">3 - 4</option>
+				<option value = "4 - 5">4 - 5</option>
+				<option value = "5 - 6">5 - 6</option>	
+				<option value ="Flexible">Flexible</option>
+				</select>
+				</div>
+								
+			</div>
 		
-			<p>Wednesday Morning</p>
-			<select id = "morn3">
-  			<option value="" disabled selected hidden>Please Choose a Time..</option>
-			<option value="7 - 8">7 - 8</option>
-  			<option value="8 - 9">8 - 9</option>
-  			<option value="9 - 10">9 - 10</option>
-  			<option value="10 - 11">10 - 11</option>
-			<option value = "11 - 12">11 - 12</option>
-			<option value ="Flexible">Flexible</option>
-			</select>
-		
-			<p>Wednesday Evening</p>
-			<select id = "even3">
-  			<option value="" disabled selected hidden>Please Choose a Time..</option>
-			<option value="12 - 1">12 - 1</option>
-  			<option value="1 - 2">1 - 2</option>
-  			<option value="2 - 3">2 - 3</option>
-  			<option value="3 - 4">3 - 4</option>
-			<option value = "4 - 5">4 - 5</option>
-			<option value = "5 - 6">5 - 6</option>	
-			<option value ="Flexible">Flexible</option>
-			</select>
-		
-			<p>Thursday Morning</p>
-			<select id = "morn4">
-  			<option value="" disabled selected hidden>Please Choose a Time..</option>
-			<option value="7 - 8">7 - 8</option>
-  			<option value="8 - 9">8 - 9</option>
-  			<option value="9 - 10">9 - 10</option>
-  			<option value="10 - 11">10 - 11</option>
-			<option value = "11 - 12">11 - 12</option>
-			<option value ="Flexible">Flexible</option>
-			</select>
-		
-			<p>Thursday Evening</p>
-			<select id = "even4">
-  			<option value="" disabled selected hidden>Please Choose a Time..</option>
-			<option value="12 - 1">12 - 1</option>
-  			<option value="1 - 2">1 - 2</option>
-  			<option value="2 - 3">2 - 3</option>
-  			<option value="3 - 4">3 - 4</option>
-			<option value = "4 - 5">4 - 5</option>
-			<option value = "5 - 6">5 - 6</option>	
-			<option value ="Flexible">Flexible</option>
-			</select>
-		
-			<p>Friday Morning</p>
-			<select id = "morn5">
-  			<option value="" disabled selected hidden>Please Choose a Time..</option>
-			<option value="7 - 8">7 - 8</option>
-  			<option value="8 - 9">8 - 9</option>
-  			<option value="9 - 10">9 - 10</option>
-  			<option value="10 - 11">10 - 11</option>
-			<option value = "11 - 12">11 - 12</option>
-			<option value ="Flexible">Flexible</option>
-			</select>
-		
-			<p>Friday Evening</p>
-			<select id = "even5">
-  			<option value="" disabled selected hidden>Please Choose a Time..</option>
-			<option value="12 - 1">12 - 1</option>
-  			<option value="1 - 2">1 - 2</option>
-  			<option value="2 - 3">2 - 3</option>
-  			<option value="3 - 4">3 - 4</option>
-			<option value = "4 - 5">4 - 5</option>
-			<option value = "5 - 6">5 - 6</option>	
-			<option value ="Flexible">Flexible</option>
-			</select>
-		
-			<button onclick="validateForm()" id="save" disabled>Save</button>
-	</head>
-	<body>
-	</body>
+		<button type="submit" class="login-button" onclick="validateForm();"><i class="fa fa-chevron-right"></i></button>
+		</div>
+	</div>
+	</div>
+					
+				
+</div>
+</div>
+</div>
+
+			
+	
+</body>
 </html>

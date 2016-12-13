@@ -5,7 +5,7 @@ var config = {
 		storageBucket: "college-4ab84.appspot.com",
 		messagingSenderId: "409094544332"
 	  };
-	  firebase.initializeApp(config);
+	  var fireMatch = firebase.initializeApp(config,"Secondary");
 	  
 	  var userLat;
 	  var userLng;
@@ -19,13 +19,8 @@ var config = {
 					userLng = snapshot.val().location.lng;
 					driver = snapshot.val().driver;
 					userUID = snapshot.key;
-					document.getElementById('match').disabled=false;
 			});
 	  });
-	  
-	  function redirect_Home(){
-			window.location="home.html";
-	  }
 	  
 	  var matches = [];
 	  var matched = [];
@@ -64,7 +59,7 @@ var config = {
 	  
 	  function store(){
 			firebase.database().ref('Users/'+userUID).child('match').remove();
-			firebase.database().ref('Users/'+userUID+'/match/').update(matched,function redirect_home() {window.location = "match.html"});
+			firebase.database().ref('Users/'+userUID+'/match/').update(matched,function redirect_home() {document.getElementById('mapFrame').src = document.getElementById('mapFrame').src});
 	  }
 	  
 	  function matchDriver(obj){

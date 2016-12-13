@@ -1,17 +1,44 @@
 <!DOCTYPE html>
 <html>
   <head>
+	  <title>VroomMates</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://www.gstatic.com/firebasejs/3.5.1/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.5.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.5.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.5.0/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/live/0.5/firebase-ui-auth.js"></script>
 	<script type="text/javascript" src = "matchFunctions.js"></script>
-	
-    <iframe id="map" width="500" height="400" frameborder="0" style="border:0" src="matchMap.html"></iframe>
-	<button onclick="redirect_Home();" name="home">Home</button>
-	<button onclick="startMatch();" id="match" disabled>Match</button>
+	  <script src="homeFunctions.js"></script>
+	<link rel="stylesheet" href="style.css">
+	  
+	  
+	 
+    
   </head>
   <body>
+	  
+	  
+	  <nav class="navbar navbar-inverse">
+	  <div class="container-fluid">		  
+			<div class="navbar-header">
+				
+		  		<a class="navbar-brand" href="#" onclick="redirect_Home();">VroomMates</a>
+				
+				<a class="navbar-brand" href="#" onclick="Match();">Match</a>
+			</div>
+		  
+		 
+		  	
+	  </div>
+		   
+	</nav>
+	  
+	  <iframe id="map" width="500" height="400" frameborder="0" style="border:0 color:black" src="matchMap.html"></iframe>
+	
   </body>
 </html>
