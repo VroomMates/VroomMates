@@ -13,17 +13,29 @@ var config = {
 	  var driver;
 	  
 	  
-	  firebase.auth().onAuthStateChanged(function(user) {
+	 /* firebase.auth().onAuthStateChanged(function(user) {
 			firebase.database().ref('Users/' + user.uid).once('value').then(function(snapshot) {
 					userLat = snapshot.val().location.lat;
 					userLng = snapshot.val().location.lng;
 					driver = snapshot.val().driver;
 					userUID = snapshot.key;
 			});
-	  });
+	  });*/
 	  
 	  var matches = [];
 	  var matched = [];
+	  
+	  function matchUpdate(){
+			firebase.database().ref('Users/' + firebase.auth().currentUser.uid).once('value').then(function(snapshot) {
+					userLat = snapshot.val().location.lat;
+					userLng = snapshot.val().location.lng;
+					driver = snapshot.val().driver;
+					userUID = snapshot.key;
+					matches = [];
+					matched = [];
+			});
+			startMatch();
+	  }
 	  
 	  function startMatch(){
 			if(driver=="yes"){
