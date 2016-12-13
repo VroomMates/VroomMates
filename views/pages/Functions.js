@@ -100,7 +100,7 @@
       firebase.auth().currentUser.sendEmailVerification().then(function() {
         // Email Verification sent!
         // [START_EXCLUDE]
-        alert('Email Verification Sent!');
+        //alert('Email Verification Sent!');
 		Redirect_setup();
         // [END_EXCLUDE]
       });
