@@ -1,3 +1,6 @@
+
+
+
 var config = {
 		apiKey: "AIzaSyB3ocXC1s5sSMOT2ZV0snKdjBx85XsbPmA",
 		authDomain: "college-4ab84.firebaseapp.com",

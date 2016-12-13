@@ -73,6 +73,9 @@ function writeUserData(userId, morn, even, day) {
 function Redirect_Profile(){
 		window.location="profile.html";
 }
+function Redirect_home(){
+		window.location="home.html";
+}
 function readUserData(user){
 	firebase.database().ref('Users/' + user).once('value').then(function(snapshot) {
 		mornMon = snapshot.val().morningSchedule.monday;
@@ -98,7 +101,5 @@ function readUserData(user){
 		document.getElementById('even3').value = evenWed;
 		document.getElementById('even4').value = evenThu;
 		document.getElementById('even5').value = evenFri;
-		
-		document.getElementById('save').disabled=false;
 	});
 }

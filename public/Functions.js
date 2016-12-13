@@ -1,3 +1,4 @@
+
     var config = {
 		apiKey: "AIzaSyB3ocXC1s5sSMOT2ZV0snKdjBx85XsbPmA",
 		authDomain: "college-4ab84.firebaseapp.com",
@@ -23,8 +24,8 @@
   
 	//handles user sign in
     function handleSignIn() {
-        var email = document.getElementById('email').value;
-        var password = document.getElementById('password').value;
+        var email = document.getElementById('lg_email').value;
+        var password = document.getElementById('lg_password').value;
         // Sign in with email and pass.
         // [START authwithemail]
         firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
@@ -47,8 +48,8 @@
 	//handles signing up
     function handleSignUp() {
 	//takes in email and password
-      var email = document.getElementById('email').value;
-      var password = document.getElementById('password').value;
+      var email = document.getElementById('reg_email').value;
+      var password = document.getElementById('reg_password').value;
       // Sign in with email and pass.
       // [START createwithemail]
       firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
@@ -70,7 +71,7 @@
 	
     //allows user to reset password
     function sendPasswordReset() {
-      var email = document.getElementById('email').value;
+      var email = document.getElementById('reg_email').value;
       // [START sendpasswordemail]
       firebase.auth().sendPasswordResetEmail(email).then(function() {
         // Password Reset Email Sent!
