@@ -36,7 +36,7 @@ function readUserData(user){
 		document.getElementById('firstName').value = firstName;
 		document.getElementById('lastName').value = lastName;
 		alert(driver);
-		document.getElementById('driver'+driver).checked = true;
+		document.getElementById('driverDiv').getElementById('driver'+driver).checked = true;
 		document.getElementById('gender'+gender).checked = true;
 		
 		geocoder = new google.maps.Geocoder();
@@ -53,7 +53,7 @@ function redirect(){
 		firstNameNew = document.getElementById('firstName').value;
 		lastNameNew = document.getElementById('lastName').value;
 		genderNew = document.querySelector('input[name ="gender"]:checked').value;
-		driverNew = document.querySelector('input[name ="driver"]:checked').value;
+		driverNew = document.getElementById('driverDiv').querySelector('input[name ="driver"]:checked').value;
 		addressNew = document.getElementById('address').value;
 		
 		if(firstName!=firstNameNew||lastName!=lastNameNew||gender!=genderNew||driver!=driverNew||address!=addressNew)
