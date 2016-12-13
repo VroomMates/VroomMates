@@ -10,7 +10,7 @@
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/live/0.5/firebase-ui-auth.css">
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkr4cxrw3ZEG098emzdRIfpfNX5rDMg2k&libraries=places"></script>
 	<script src="profileFunctions.js"></script>
-	<script src="matchFunctions.js"></script>	
+	<script src="matchFunctions.js"></script>
 	
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
@@ -268,6 +268,31 @@ html,
 	  border: 1px solid #f6f6f6 !important;
 	}
 	/*=== Customization ===*/
+	/* radio aspect */
+	[type="checkbox"]:not(:checked) + label:before,
+	[type="checkbox"]:checked + label:before {
+	  border-radius: 3px;
+	}
+	[type="radio"]:not(:checked) + label:before,
+	[type="radio"]:checked + label:before {
+	  border-radius: 35px;
+	}
+	/* selected mark aspect */
+	[type="checkbox"]:not(:checked) + label:after,
+	[type="checkbox"]:checked + label:after {
+	  content: '✔';
+	  top: 0;
+	  left: 2px;
+	  font-size: 14px;
+	}
+	[type="radio"]:not(:checked) + label:after,
+	[type="radio"]:checked + label:after {
+	  content: '\2022';
+	  top: 0;
+	  left: 3px;
+	  font-size: 30px;
+	  line-height: 25px;
+	}
 	/*=== 9. Misc ===*/
 	.logo {
 	  padding: 15px 0;
@@ -323,7 +348,7 @@ html,
 							
 							
 			</div>
-			<div >
+			<div class="form-group login-group-checkbox">
 							<p>Driver</p>
 							<input type="radio" class="" name="driver" id="driveryes" value="yes">
 							<label for="driverY">Yes</label>
