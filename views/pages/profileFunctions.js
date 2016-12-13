@@ -35,6 +35,7 @@ function readUserData(user){
 		
 		document.getElementById('firstName').value = firstName;
 		document.getElementById('lastName').value = lastName;
+		alert("setting driver");
 		document.getElementById('driver'+driver).checked = true;
 		document.getElementById('gender'+gender).checked = true;
 		
@@ -43,8 +44,6 @@ function readUserData(user){
 			  if (status == google.maps.GeocoderStatus.OK) {
 				address  = results[1].formatted_address;//change to 0 or 1
 				document.getElementById('address').value = address;
-				document.getElementById('schedule').disabled=false;
-				document.getElementById('home').disabled=false;
 			  }
 		});
 	});
