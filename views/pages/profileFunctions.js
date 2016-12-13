@@ -25,6 +25,44 @@ var genderNew;
 var driverNew;
 var addressNew;
 
+function save(){
+	var foundLocation;
+	var lat;
+	var lng;
+	firstNameNew = document.getElementById('firstName').value;
+	lastNameNew = document.getElementById('lastName').value;
+	genderNew = document.querySelector('input[name ="gender"]:checked').value;
+	driverNew = document.querySelector('input[name ="driver"]:checked').value;
+	addressNew = document.getElementById('address').value;
+	
+	geocoder = new google.maps.Geocoder();
+    geocoder.geocode( { 'address': addressNew}, function(results, status) {
+	//alert("here");
+      if (status == google.maps.GeocoderStatus.OK) {
+	  //alert("here");
+		lat = results[0].geometry.location.lat();
+		lng = results[0].geometry.location.lng();
+		foundLocation = true;
+      }
+	  else{
+			foundLocation = false;
+	  }
+	  if(firstNameNew.length<=0||lastNameNew.length<=0||genderNew==null||driverNew==null||!foundLocation){
+		alert("A value in your info is in-valid");
+	}
+	else{
+		var userId = firebase.auth().currentUser.uid;
+		var reference = firebase.database().ref('Users/'+userId);
+		  reference.child('firstName').set(firstNameNew);
+		  reference.child('lastName').set(lastNameNew);
+		  reference.child('gender').set(genderNew);
+		  reference.child('location/lat/').set(lat);
+		  reference.child('location/lng/').set(lng);
+		  reference.child('driver').set(driverNew,function(){readUserData(userId);});
+	}
+    });
+}
+
 function readUserData(user){
 	firebase.database().ref('Users/' + user).once('value').then(function(snapshot) {
 		firstName = snapshot.val().firstName;
@@ -43,6 +81,7 @@ function readUserData(user){
 			  if (status == google.maps.GeocoderStatus.OK) {
 				address  = results[1].formatted_address;//change to 0 or 1
 				document.getElementById('address').value = address;
+				matchUpdate();
 			  }
 		});
 	});
