@@ -10,6 +10,7 @@
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/live/0.5/firebase-ui-auth.css">
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkr4cxrw3ZEG098emzdRIfpfNX5rDMg2k&libraries=places"></script>
 	<script src="profileFunctions.js"></script>
+	<script src="matchFunctions.js"></script>	
 	
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
@@ -27,7 +28,18 @@ html,
 	  
 	  font-family: 'Varela Round';
 	}
-	
+	#mapFrame{
+		position: fixed;
+    top: 65%;
+    left: 37%;
+    bottom: 0;
+    right: 0;
+	width: 400px;
+	height: 200px;
+	border-style: indent;
+	border-width: 5px;
+	border-color: #999999;
+       }
 	a {
 	  color: #333333;
 	  text-shadow: lightgray;
@@ -336,7 +348,7 @@ html,
 							
 							
 			</div>
-			<div class="form-group login-group-checkbox">
+			<div >
 							<p>Driver</p>
 							<input type="radio" class="" name="driver" id="driveryes" value="yes">
 							<label for="driverY">Yes</label>
@@ -360,7 +372,7 @@ html,
 				</div>
 			</div>
 		</div>
-		<!--<iframe  id="mapFrame" frameborder="0" style="border:0 color:black" src="matchMap.html"></iframe>-->
+		<iframe  id="mapFrame" frameborder="0" style="border:0 color:black" src="matchMap.html"></iframe>
 	</div>
 </div>
 	</body>
